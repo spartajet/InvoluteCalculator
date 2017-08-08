@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">InvoluteCalculator</string>
+    <string name="clear">Clear</string>
+    <string name="calculate">Calculate</string>
+    <string name="quit">Quit</string>
+    <string name="parameter">Parameter</string>
+    <string name="teeth_number">Teeth Number</string>
+    <string name="normal_module">Normal Module</string>
+    <string name="transverse_module">Transverse Module</string>
+    <string name="axial_module">Axial Module</string>
+    <string name="base_module">Base Module</string>
+    <string name="normal_pressure">Normal Pressure</string>
+    <string name="pressure_angle">Pressure Angle</string>
+    <string name="helix_angle">Helix Angle</string>
+    <string name="lead_angle">Lead Angle</string>
+    <string name="reference_diameter">Reference Diameter</string>
+    <string name="base_diameter">Base Diameter</string>
+</resources>
