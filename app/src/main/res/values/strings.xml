@@ -15,4 +15,6 @@
     <string name="lead_angle">Lead Angle</string>
     <string name="reference_diameter">Reference Diameter</string>
     <string name="base_diameter">Base Diameter</string>
+    <string name="fixed">Fixed</string>
+    <string name="value">Value</string>
 </resources>
