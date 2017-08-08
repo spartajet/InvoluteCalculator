@@ -49,12 +49,19 @@
                 android:layout_above="@+id/linearLayout"
                 android:layout_centerHorizontal="true">
     
+            <android.support.v4.view.ViewPager
+                    android:id="@id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/linearLayout3">
+            </android.support.v4.view.ViewPager>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true">
+                    android:layout_alignParentTop="true" android:id="@+id/linearLayout3">
                 <TextView
                         android:text="@string/parameter"
                         android:layout_width="wrap_content"
