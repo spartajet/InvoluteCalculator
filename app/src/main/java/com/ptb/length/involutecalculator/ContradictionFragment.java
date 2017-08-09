@@ -7,17 +7,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ContradictionFragment.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link ContradictionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ContradictionFragment extends Fragment {
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +31,17 @@ public class ContradictionFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private EditText teethNumberContradictionText;
+    private EditText normalModuleContradictionText;
+    private EditText transverseModuleContradictionText;
+    private EditText axialModuleContradictionText;
+    private EditText baseModuleContradictionText;
+    private EditText normalPressureAngleContradictionText;
+    private EditText pressureAngleContradictionText;
+    private EditText helixAngleContradictionText;
+    private EditText leadAngleContradictionText;
+    private EditText referenceDiameterContradictionText;
+    private EditText baseDiameterContradictionText;
 
     public ContradictionFragment() {
         // Required empty public constructor
@@ -64,7 +78,19 @@ public class ContradictionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contradiction, container, false);
+        View contradictionView = inflater.inflate(R.layout.fragment_contradiction, container, false);
+        this.baseDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.baseDiameterContradictionText);
+        this.referenceDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.referenceDiameterContradictionText);
+        this.leadAngleContradictionText = (EditText) contradictionView.findViewById(R.id.leadAngleContradictionText);
+        this.helixAngleContradictionText = (EditText) contradictionView.findViewById(R.id.helixAngleContradictionText);
+        this.pressureAngleContradictionText = (EditText) contradictionView.findViewById(R.id.pressureAngleContradictionText);
+        this.normalPressureAngleContradictionText = (EditText) contradictionView.findViewById(R.id.normalPressureAngleContradictionText);
+        this.baseModuleContradictionText = (EditText) contradictionView.findViewById(R.id.baseModuleContradictionText);
+        this.axialModuleContradictionText = (EditText) contradictionView.findViewById(R.id.axialModuleContradictionText);
+        this.transverseModuleContradictionText = (EditText) contradictionView.findViewById(R.id.transverseModuleContradictionText);
+        this.normalModuleContradictionText = (EditText) contradictionView.findViewById(R.id.normalModuleContradictionText);
+        this.teethNumberContradictionText = (EditText) contradictionView.findViewById(R.id.teethNumberContradictionText);
+        return contradictionView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

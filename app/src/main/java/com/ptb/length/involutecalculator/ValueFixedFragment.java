@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 
 /**
@@ -28,6 +30,29 @@ public class ValueFixedFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private android.widget.TextView textView13;
+    private android.widget.EditText teethNumberValueText;
+    private android.widget.EditText normalModuleValueText;
+    private android.widget.EditText transverseModuleValueText;
+    private android.widget.EditText axialModuleValueText;
+    private android.widget.EditText baseModuleValueText;
+    private android.widget.EditText normalPressureAngleValueText;
+    private android.widget.EditText PressureAngleValueText;
+    private android.widget.EditText helixAngleValueText;
+    private android.widget.EditText leadAngleValueText;
+    private android.widget.EditText referenceDiameterValueText;
+    private android.widget.EditText baseDiameterValueText;
+    private android.widget.CheckBox teethNumberFixedBox;
+    private android.widget.CheckBox normalModuleFixedBox;
+    private android.widget.CheckBox transverseModuleFixedBox;
+    private android.widget.CheckBox axialModuleFixedBox;
+    private android.widget.CheckBox baseModuleFixedBox;
+    private android.widget.CheckBox normalPressureAngleFixedBox;
+    private android.widget.CheckBox pressureAngleFixedBox;
+    private android.widget.CheckBox helixAngleFixedBox;
+    private android.widget.CheckBox leadAngleFixedBox;
+    private android.widget.CheckBox referenceDiameterFixedBox;
+    private android.widget.CheckBox baseDiameterFixedBox;
 
     public ValueFixedFragment() {
         // Required empty public constructor
@@ -64,7 +89,30 @@ public class ValueFixedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_value_fixed, container, false);
+        View valueFixedView = inflater.inflate(R.layout.fragment_value_fixed, container, false);
+        this.baseDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.baseDiameterFixedBox);
+        this.referenceDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.referenceDiameterFixedBox);
+        this.leadAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.leadAngleFixedBox);
+        this.helixAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.helixAngleFixedBox);
+        this.pressureAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.pressureAngleFixedBox);
+        this.normalPressureAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.normalPressureAngleFixedBox);
+        this.baseModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.baseModuleFixedBox);
+        this.axialModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.axialModuleFixedBox);
+        this.transverseModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.transverseModuleFixedBox);
+        this.normalModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.normalModuleFixedBox);
+        this.teethNumberFixedBox = (CheckBox) valueFixedView.findViewById(R.id.teethNumberFixedBox);
+        this.baseDiameterValueText = (EditText) valueFixedView.findViewById(R.id.baseDiameterValueText);
+        this.referenceDiameterValueText = (EditText) valueFixedView.findViewById(R.id.referenceDiameterValueText);
+        this.leadAngleValueText = (EditText) valueFixedView.findViewById(R.id.leadAngleValueText);
+        this.helixAngleValueText = (EditText) valueFixedView.findViewById(R.id.helixAngleValueText);
+        this.PressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.PressureAngleValueText);
+        this.normalPressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.normalPressureAngleValueText);
+        this.baseModuleValueText = (EditText) valueFixedView.findViewById(R.id.baseModuleValueText);
+        this.axialModuleValueText = (EditText) valueFixedView.findViewById(R.id.axialModuleValueText);
+        this.transverseModuleValueText = (EditText) valueFixedView.findViewById(R.id.transverseModuleValueText);
+        this.normalModuleValueText = (EditText) valueFixedView.findViewById(R.id.normalModuleValueText);
+        this.teethNumberValueText = (EditText) valueFixedView.findViewById(R.id.teethNumberValueText);
+        return valueFixedView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
