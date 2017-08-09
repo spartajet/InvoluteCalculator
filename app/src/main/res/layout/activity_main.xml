@@ -23,7 +23,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
+            android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0">
         
         <LinearLayout
                 android:orientation="horizontal"
@@ -61,7 +61,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true" android:id="@+id/linearLayout3">
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/linearLayout3">
                 <TextView
                         android:text="@string/parameter"
                         android:layout_width="wrap_content"

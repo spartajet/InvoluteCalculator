@@ -5,7 +5,10 @@
              tools:context="com.ptb.length.involutecalculator.ValueFixedFragment">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp">
         
         <LinearLayout
                 android:orientation="vertical"
@@ -19,79 +22,80 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView13"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textSize="20dp"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText14"
-                    android:layout_weight="1"/>
+                    android:layout_weight="0.92"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText15"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText16"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText17"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText18"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText19"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText20"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText21"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText22"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/editText23"
                     android:layout_weight="1"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
@@ -100,16 +104,17 @@
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="100dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:id="@+id/linearLayout2">
+                android:id="@+id/linearLayout2" android:gravity="center_horizontal">
             <TextView
                     android:text="@string/fixed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textSize="20dp"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
