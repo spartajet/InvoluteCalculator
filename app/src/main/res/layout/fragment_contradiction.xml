@@ -7,20 +7,20 @@
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:layout_marginTop="9dp"
-                  android:layout_marginStart="8dp"
                   android:layout_marginLeft="8dp">
         
         <TextView
                 android:text="@string/contradiction"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:id="@+id/textView14"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
                 android:id="@+id/teethNumberContradictionText"
@@ -28,74 +28,84 @@
         
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText2" android:layout_weight="1"/>
+                android:id="@+id/normalModuleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText3" android:layout_weight="1"/>
+                android:id="@+id/transverseModuleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText4" android:layout_weight="1"/>
+                android:id="@+id/axialModuleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText5" android:layout_weight="1"/>
+                android:id="@+id/baseModuleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText6" android:layout_weight="1"/>
+                android:id="@+id/normalPressureAngleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText7" android:layout_weight="1"/>
+                android:id="@+id/pressureAngleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText8" android:layout_weight="1"/>
+                android:id="@+id/helixAngleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText9" android:layout_weight="1"/>
+                android:id="@+id/leadAngleContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText10" android:layout_weight="1"/>
+                android:id="@+id/referenceDiameterContradictionText"
+                android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_height="0dp"
+                android:inputType="none"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editText11" android:layout_weight="1"/>
+                android:id="@+id/baseDiameterContradictionText"
+                android:layout_weight="1"/>
     </LinearLayout>
 
 </FrameLayout>

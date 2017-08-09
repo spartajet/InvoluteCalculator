@@ -6,8 +6,6 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp">
         
         <LinearLayout
@@ -20,169 +18,203 @@
             <TextView
                     android:text="@string/value"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:id="@+id/textView13"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="20dp"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText14"
-                    android:layout_weight="0.92"/>
+                    android:id="@+id/teethNumberValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText15"
-                    android:layout_weight="1"/>
+                    android:id="@+id/normalModuleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText16"
-                    android:layout_weight="1"/>
+                    android:id="@+id/transverseModuleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText17"
-                    android:layout_weight="1"/>
+                    android:id="@+id/axialModuleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText18"
-                    android:layout_weight="1"/>
+                    android:id="@+id/baseModuleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText19"
-                    android:layout_weight="1"/>
+                    android:id="@+id/normalPressureAngleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText20"
-                    android:layout_weight="1"/>
+                    android:id="@+id/PressureAngleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText21"
-                    android:layout_weight="1"/>
+                    android:id="@+id/helixAngleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText22"
-                    android:layout_weight="1"/>
+                    android:id="@+id/leadAngleValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText23"
-                    android:layout_weight="1"/>
+                    android:id="@+id/referenceDiameterValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
             <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText24"
-                    android:layout_weight="1"/>
+                    android:id="@+id/baseDiameterValueText"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:cursorVisible="false"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:id="@+id/linearLayout2" android:gravity="center_horizontal">
+                android:id="@+id/linearLayout2"
+                android:gravity="center_horizontal">
             <TextView
                     android:text="@string/fixed"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:id="@+id/textView"
+                    android:textSize="20dp"
                     android:layout_weight="1"
-                    android:textSize="20dp"/>
+                    android:gravity="center_vertical"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox1"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/teethNumberFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox2"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/normalModuleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox3"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/transverseModuleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox4"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/axialModuleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox5"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/baseModuleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox6"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/normalPressureAngleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox7"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/pressureAngleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox8"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/helixAngleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox9"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/leadAngleFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox10"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/referenceDiameterFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
             <CheckBox
                     android:text=""
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox11"
-                    android:layout_weight="1"/>
+                    android:layout_height="0dp"
+                    android:id="@+id/baseDiameterFixedBox"
+                    android:layout_weight="1"
+                    android:checked="true"/>
         </LinearLayout>
     </RelativeLayout>
-
-
 </FrameLayout>
