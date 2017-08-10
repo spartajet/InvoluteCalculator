@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.LinearLayout;
 import com.ptb.length.involutecalculator.R;
-import com.ptb.length.involutecalculator.listener.InvoluteValueEditOnFocusChangeListener;
+import com.ptb.length.involutecalculator.util.InvoluteEditText;
 
 
 /**
@@ -32,7 +32,6 @@ public class ValueFixedFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private android.widget.TextView textView13;
     private android.widget.EditText teethNumberValueText;
     private android.widget.EditText normalModuleValueText;
     private android.widget.EditText transverseModuleValueText;
@@ -55,6 +54,7 @@ public class ValueFixedFragment extends Fragment {
     private android.widget.CheckBox leadAngleFixedBox;
     private android.widget.CheckBox referenceDiameterFixedBox;
     private android.widget.CheckBox baseDiameterFixedBox;
+    private LinearLayout valueEditLayout;
 
     public ValueFixedFragment() {
         // Required empty public constructor
@@ -92,6 +92,7 @@ public class ValueFixedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View valueFixedView = inflater.inflate(R.layout.fragment_value_fixed, container, false);
+        this.valueEditLayout = (LinearLayout) valueFixedView.findViewById(R.id.valueEditsLayout);
         this.baseDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.baseDiameterFixedBox);
         this.referenceDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.referenceDiameterFixedBox);
         this.leadAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.leadAngleFixedBox);
@@ -103,19 +104,40 @@ public class ValueFixedFragment extends Fragment {
         this.transverseModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.transverseModuleFixedBox);
         this.normalModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.normalModuleFixedBox);
         this.teethNumberFixedBox = (CheckBox) valueFixedView.findViewById(R.id.teethNumberFixedBox);
-        this.baseDiameterValueText = (EditText) valueFixedView.findViewById(R.id.baseDiameterValueText);
-        this.referenceDiameterValueText = (EditText) valueFixedView.findViewById(R.id.referenceDiameterValueText);
-        this.leadAngleValueText = (EditText) valueFixedView.findViewById(R.id.leadAngleValueText);
-        this.helixAngleValueText = (EditText) valueFixedView.findViewById(R.id.helixAngleValueText);
-        this.PressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.PressureAngleValueText);
-        this.normalPressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.normalPressureAngleValueText);
-        this.baseModuleValueText = (EditText) valueFixedView.findViewById(R.id.baseModuleValueText);
-        this.axialModuleValueText = (EditText) valueFixedView.findViewById(R.id.axialModuleValueText);
-        this.transverseModuleValueText = (EditText) valueFixedView.findViewById(R.id.transverseModuleValueText);
-        this.normalModuleValueText = (EditText) valueFixedView.findViewById(R.id.normalModuleValueText);
-        this.teethNumberValueText = (EditText) valueFixedView.findViewById(R.id.teethNumberValueText);
-        this.teethNumberValueText.setOnFocusChangeListener(new InvoluteValueEditOnFocusChangeListener());
-//        this.teethNumberValueText.
+        this.teethNumberValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(teethNumberValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.normalModuleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(normalModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.transverseModuleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(transverseModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.axialModuleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(axialModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.baseModuleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(baseModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.normalPressureAngleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(this.normalPressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.PressureAngleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(PressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.helixAngleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(helixAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.leadAngleValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(leadAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.referenceDiameterValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(referenceDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        this.baseDiameterValueText = new InvoluteEditText(getContext());
+        this.valueEditLayout.addView(baseDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+//        this.baseDiameterValueText = (EditText) valueFixedView.findViewById(R.id.baseDiameterValueText);
+//        this.referenceDiameterValueText = (EditText) valueFixedView.findViewById(R.id.referenceDiameterValueText);
+//        this.leadAngleValueText = (EditText) valueFixedView.findViewById(R.id.leadAngleValueText);
+//        this.helixAngleValueText = (EditText) valueFixedView.findViewById(R.id.helixAngleValueText);
+//        this.PressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.PressureAngleValueText);
+//        this.normalPressureAngleValueText = (EditText) valueFixedView.findViewById(R.id.normalPressureAngleValueText);
+//        this.baseModuleValueText = (EditText) valueFixedView.findViewById(R.id.baseModuleValueText);
+//        this.axialModuleValueText = (EditText) valueFixedView.findViewById(R.id.axialModuleValueText);
+//        this.transverseModuleValueText = (EditText) valueFixedView.findViewById(R.id.transverseModuleValueText);
+//        this.normalModuleValueText = (EditText) valueFixedView.findViewById(R.id.normalModuleValueText);
+//        this.teethNumberValueText = (EditText) valueFixedView.findViewById(R.id.teethNumberValueText);
+//        this.teethNumberValueText.setOnFocusChangeListener(new InvoluteValueEditOnFocusChangeListener());
 
         return valueFixedView;
     }
