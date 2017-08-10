@@ -11,27 +11,27 @@ import android.view.View;
  * @email spartajet.guo@gmail.com
  */
 
-public class InvoluteEditText extends android.support.v7.widget.AppCompatEditText {
+public class InvoluteEditText extends android.support.v7.widget.AppCompatEditText implements View.OnFocusChangeListener {
     public InvoluteEditText(Context context) {
         super(context);
         this.setCursorVisible(false);
         this.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_CLASS_NUMBER);
         this.setEms(10);
         this.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
-        this.setOnFocusChangeListener(new OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    InvoluteEditText editText = (InvoluteEditText) v;
-                    editText.setSelection(editText.getText().length());
-                }
-            }
-        });
+        this.setOnFocusChangeListener(this);
     }
 
     @Override
     protected void onSelectionChanged(int selStart, int selEnd) {
         super.onSelectionChanged(selStart, selEnd);
         this.setSelection(this.getText().length());
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) {
+            InvoluteEditText editText = (InvoluteEditText) v;
+            editText.setSelection(editText.getText().length());
+        }
     }
 }
