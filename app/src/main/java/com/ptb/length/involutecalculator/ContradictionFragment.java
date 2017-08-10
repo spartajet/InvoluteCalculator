@@ -80,16 +80,27 @@ public class ContradictionFragment extends Fragment {
         // Inflate the layout for this fragment
         View contradictionView = inflater.inflate(R.layout.fragment_contradiction, container, false);
         this.baseDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.baseDiameterContradictionText);
+        this.baseDiameterContradictionText.setKeyListener(null);
         this.referenceDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.referenceDiameterContradictionText);
+        this.referenceDiameterContradictionText.setKeyListener(null);
         this.leadAngleContradictionText = (EditText) contradictionView.findViewById(R.id.leadAngleContradictionText);
+        this.leadAngleContradictionText.setKeyListener(null);
         this.helixAngleContradictionText = (EditText) contradictionView.findViewById(R.id.helixAngleContradictionText);
+        this.helixAngleContradictionText.setKeyListener(null);
         this.pressureAngleContradictionText = (EditText) contradictionView.findViewById(R.id.pressureAngleContradictionText);
+        this.pressureAngleContradictionText.setKeyListener(null);
         this.normalPressureAngleContradictionText = (EditText) contradictionView.findViewById(R.id.normalPressureAngleContradictionText);
+        this.normalPressureAngleContradictionText.setKeyListener(null);
         this.baseModuleContradictionText = (EditText) contradictionView.findViewById(R.id.baseModuleContradictionText);
+        this.baseModuleContradictionText.setKeyListener(null);
         this.axialModuleContradictionText = (EditText) contradictionView.findViewById(R.id.axialModuleContradictionText);
+        this.axialModuleContradictionText.setKeyListener(null);
         this.transverseModuleContradictionText = (EditText) contradictionView.findViewById(R.id.transverseModuleContradictionText);
+        this.transverseModuleContradictionText.setKeyListener(null);
         this.normalModuleContradictionText = (EditText) contradictionView.findViewById(R.id.normalModuleContradictionText);
+        this.normalModuleContradictionText.setKeyListener(null);
         this.teethNumberContradictionText = (EditText) contradictionView.findViewById(R.id.teethNumberContradictionText);
+        this.teethNumberContradictionText.setKeyListener(null);
         return contradictionView;
     }
 

@@ -24,7 +24,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/teethNumberContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         
         <EditText
                 android:layout_width="match_parent"
@@ -33,7 +34,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/normalModuleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -41,7 +43,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/transverseModuleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -49,7 +52,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/axialModuleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -57,7 +61,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/baseModuleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -65,7 +70,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/normalPressureAngleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -73,7 +79,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/pressureAngleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -81,7 +88,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/helixAngleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -89,7 +97,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/leadAngleContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -97,7 +106,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/referenceDiameterContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -105,7 +115,8 @@
                 android:text=""
                 android:ems="10"
                 android:id="@+id/baseDiameterContradictionText"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"/>
     </LinearLayout>
 
 </FrameLayout>
