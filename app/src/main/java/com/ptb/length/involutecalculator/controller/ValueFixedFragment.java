@@ -1,4 +1,4 @@
-package com.ptb.length.involutecalculator;
+package com.ptb.length.involutecalculator.controller;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import com.ptb.length.involutecalculator.R;
+import com.ptb.length.involutecalculator.listener.InvoluteValueEditOnFocusChangeListener;
 
 
 /**
@@ -112,6 +114,9 @@ public class ValueFixedFragment extends Fragment {
         this.transverseModuleValueText = (EditText) valueFixedView.findViewById(R.id.transverseModuleValueText);
         this.normalModuleValueText = (EditText) valueFixedView.findViewById(R.id.normalModuleValueText);
         this.teethNumberValueText = (EditText) valueFixedView.findViewById(R.id.teethNumberValueText);
+        this.teethNumberValueText.setOnFocusChangeListener(new InvoluteValueEditOnFocusChangeListener());
+//        this.teethNumberValueText.
+
         return valueFixedView;
     }
 

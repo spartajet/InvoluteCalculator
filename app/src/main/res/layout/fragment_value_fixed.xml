@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.ptb.length.involutecalculator.ValueFixedFragment">
+             tools:context="com.ptb.length.involutecalculator.controller.ValueFixedFragment">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -31,7 +31,7 @@
                     android:id="@+id/teethNumberValueText"
                     android:layout_weight="1"
                     android:gravity="center_vertical|right"
-                    android:cursorVisible="false"/>
+                    />
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

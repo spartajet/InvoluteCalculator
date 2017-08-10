@@ -1,4 +1,4 @@
-package com.ptb.length.involutecalculator;
+package com.ptb.length.involutecalculator.controller;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import com.ptb.length.involutecalculator.util.InvolutePageAdapter;
+import com.ptb.length.involutecalculator.R;
 
 import java.util.ArrayList;
 import java.util.List;
