@@ -3,6 +3,7 @@ package com.ptb.length.involutecalculator.util;
 import android.content.Context;
 import android.text.InputType;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 
 /**
@@ -12,10 +13,18 @@ import android.view.View;
  */
 
 public class InvoluteEditText extends android.support.v7.widget.AppCompatEditText implements View.OnFocusChangeListener {
-    public InvoluteEditText(Context context) {
+
+    public InvoluteEditText(Context context,InvoluteParameterType type) {
         super(context);
         this.setCursorVisible(false);
-        this.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_CLASS_NUMBER);
+        switch (type) {
+            case INTEGER:
+                this.setInputType(InputType.TYPE_CLASS_NUMBER);
+                break;
+            case DECIMAL:
+                this.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_CLASS_NUMBER);
+                break;
+        }
         this.setEms(10);
         this.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         this.setOnFocusChangeListener(this);
@@ -34,4 +43,15 @@ public class InvoluteEditText extends android.support.v7.widget.AppCompatEditTex
             editText.setSelection(editText.getText().length());
         }
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public enum InvoluteParameterType {
+        INTEGER,DECIMAL
+    }
+
 }
