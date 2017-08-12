@@ -2,9 +2,14 @@ package com.ptb.length.involutecalculator.listener;
 
 import android.text.Editable;
 import android.text.method.DigitsKeyListener;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
+import com.ptb.involutecalculator.involute.ParaInt;
+import com.ptb.involutecalculator.io.check.InputCheckResultInt;
+import com.ptb.length.involutecalculator.util.InvoluteEditText;
+import com.ptb.length.involutecalculator.util.KeyCodeUtil;
+
 
 /**
  * @description
@@ -14,14 +19,23 @@ import android.view.View;
 
 public class InvoluteEditIntKeyListener extends DigitsKeyListener {
     private static final String TAG = "InvoluteEditIntKey";
+    private ParaInt paraInt;
 
-    public InvoluteEditIntKeyListener() {
+    public InvoluteEditIntKeyListener(ParaInt paraInt) {
         super(false, true);
+        this.paraInt = paraInt;
     }
 
     @Override
     public boolean onKeyDown(View view, Editable content, int keyCode, KeyEvent event) {
-        Log.i(TAG, "onKeyDown: key code: " + keyCode);
-        return super.onKeyDown(view, content, keyCode, event);
+        char c = KeyCodeUtil.keyCode2Char(keyCode);
+        InputCheckResultInt result = (InputCheckResultInt) this.paraInt.addChar(c);
+        if (result.getCode() != 0) {
+            Toast.makeText(view.getContext(), result.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        InvoluteEditText editText = (InvoluteEditText) view;
+        editText.setText(result.getValueString());
+        return true;
+//        return super.onKeyDown(view, content, keyCode, event);
     }
 }
