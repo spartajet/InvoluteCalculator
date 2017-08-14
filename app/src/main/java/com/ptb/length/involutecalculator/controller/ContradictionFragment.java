@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import com.ptb.length.involutecalculator.R;
+import com.ptb.length.involutecalculator.calculator.CalculateResult;
 
 
 /**
@@ -43,6 +45,7 @@ public class ContradictionFragment extends Fragment {
     private EditText leadAngleContradictionText;
     private EditText referenceDiameterContradictionText;
     private EditText baseDiameterContradictionText;
+    private LinearLayout contradictionLayout;
 
     public ContradictionFragment() {
         // Required empty public constructor
@@ -80,6 +83,7 @@ public class ContradictionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View contradictionView = inflater.inflate(R.layout.fragment_contradiction, container, false);
+        this.contradictionLayout = (LinearLayout) contradictionView.findViewById(R.id.contradictionLayout);
         this.baseDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.baseDiameterContradictionText);
         this.baseDiameterContradictionText.setKeyListener(null);
         this.referenceDiameterContradictionText = (EditText) contradictionView.findViewById(R.id.referenceDiameterContradictionText);
@@ -125,7 +129,43 @@ public class ContradictionFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+    }
+
+    public void showResult() {
+        if (!CalculateResult.isSucceed()) {
+            this.teethNumberContradictionText.setText(R.string.nosolution);
+            this.normalModuleContradictionText.setText(R.string.nosolution);
+            this.transverseModuleContradictionText.setText(R.string.nosolution);
+            this.baseModuleContradictionText.setText(R.string.nosolution);
+            this.axialModuleContradictionText.setText(R.string.nosolution);
+            this.normalPressureAngleContradictionText.setText(R.string.nosolution);
+            this.pressureAngleContradictionText.setText(R.string.nosolution);
+            this.helixAngleContradictionText.setText(R.string.nosolution);
+            this.leadAngleContradictionText.setText(R.string.nosolution);
+            this.baseDiameterContradictionText.setText(R.string.nosolution);
+            this.referenceDiameterContradictionText.setText(R.string.nosolution);
+        } else {
+            this.teethNumberContradictionText.setText(CalculateResult.getTeethNumberContradiction());
+            this.normalModuleContradictionText.setText(CalculateResult.getModuleNormalContradiction());
+            this.transverseModuleContradictionText.setText(CalculateResult.getModuleTransverseContradiction());
+            this.baseModuleContradictionText.setText(CalculateResult.getModuleBasicContradiction());
+            this.axialModuleContradictionText.setText(CalculateResult.getModuleAxialContradiction());
+            this.normalPressureAngleContradictionText.setText(CalculateResult.getAnglePressureNormalContradiction());
+            this.pressureAngleContradictionText.setText(CalculateResult.getAnglePressureContradiction());
+            this.helixAngleContradictionText.setText(CalculateResult.getAngleHelixContradiction());
+            this.leadAngleContradictionText.setText(CalculateResult.getAngleLeadContradiction());
+            this.baseDiameterContradictionText.setText(CalculateResult.getDiameterBaseContradiction());
+            this.referenceDiameterContradictionText.setText(CalculateResult.getDiameterReferenceContradiction());
+        }
+    }
+
+    public void clear() {
+        for (int i = 0; i < this.contradictionLayout.getChildCount(); i++) {
+            View view = this.contradictionLayout.getChildAt(i);
+            if (view instanceof EditText) {
+                ((EditText) view).setText("");
+            }
+        }
     }
 
     /**

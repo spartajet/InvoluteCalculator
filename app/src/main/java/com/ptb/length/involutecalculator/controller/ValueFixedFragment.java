@@ -4,12 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.ptb.length.involutecalculator.R;
+import com.ptb.length.involutecalculator.calculator.CalculateResult;
 import com.ptb.length.involutecalculator.calculator.Parameters;
 import com.ptb.length.involutecalculator.listener.InvoluteEditIntKeyListener;
 import com.ptb.length.involutecalculator.listener.InvoluteEditRealKeyListener;
@@ -33,6 +35,8 @@ public class ValueFixedFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private static final String TAG = "ValueFixedFragment";
 
     private OnFragmentInteractionListener mListener;
     private InvoluteEditText teethNumberValueText;
@@ -58,6 +62,7 @@ public class ValueFixedFragment extends Fragment {
     private android.widget.CheckBox referenceDiameterFixedBox;
     private android.widget.CheckBox baseDiameterFixedBox;
     private LinearLayout valueEditLayout;
+    private LinearLayout fixedLinerlayout;
 
     public ValueFixedFragment() {
         // Required empty public constructor
@@ -96,18 +101,19 @@ public class ValueFixedFragment extends Fragment {
         // Inflate the layout for this fragment
         View valueFixedView = inflater.inflate(R.layout.fragment_value_fixed, container, false);
         this.valueEditLayout = (LinearLayout) valueFixedView.findViewById(R.id.valueEditsLayout);
+        this.fixedLinerlayout = (LinearLayout) valueFixedView.findViewById(R.id.fixedLinerlayout);
         this.baseDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.baseDiameterFixedBox);
         this.baseDiameterFixedBox.setOnCheckedChangeListener((buttonView, isChecked) -> Parameters.diameterBase.setFixed(isChecked));
         this.referenceDiameterFixedBox = (CheckBox) valueFixedView.findViewById(R.id.referenceDiameterFixedBox);
         this.referenceDiameterFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.diameterReference.setFixed(isChecked)));
         this.leadAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.leadAngleFixedBox);
-        this.leadAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.angleLeadReal.setFixed(isChecked)));
+        this.leadAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.angleLead.setFixed(isChecked)));
         this.helixAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.helixAngleFixedBox);
-        this.helixAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.angleHelixReal.setFixed(isChecked)));
+        this.helixAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.angleHelix.setFixed(isChecked)));
         this.pressureAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.pressureAngleFixedBox);
-        this.pressureAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.anglePressureReal.setFixed(isChecked)));
+        this.pressureAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.anglePressure.setFixed(isChecked)));
         this.normalPressureAngleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.normalPressureAngleFixedBox);
-        this.normalPressureAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.anglePressureNormalReal.setFixed(isChecked)));
+        this.normalPressureAngleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.anglePressureNormal.setFixed(isChecked)));
         this.baseModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.baseModuleFixedBox);
         this.baseModuleFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.moduleBase.setFixed(isChecked)));
         this.axialModuleFixedBox = (CheckBox) valueFixedView.findViewById(R.id.axialModuleFixedBox);
@@ -140,19 +146,19 @@ public class ValueFixedFragment extends Fragment {
 
         this.normalPressureAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(this.normalPressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.normalPressureAngleValueText, new InvoluteEditRealKeyListener(this.normalPressureAngleValueText, Parameters.anglePressureNormalReal));
+        this.addInvoluteRealEditTextListener(this.normalPressureAngleValueText, new InvoluteEditRealKeyListener(this.normalPressureAngleValueText, Parameters.anglePressureNormal));
 
         this.PressureAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(PressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.PressureAngleValueText, new InvoluteEditRealKeyListener(this.PressureAngleValueText, Parameters.anglePressureReal));
+        this.addInvoluteRealEditTextListener(this.PressureAngleValueText, new InvoluteEditRealKeyListener(this.PressureAngleValueText, Parameters.anglePressure));
 
         this.helixAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(helixAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.helixAngleValueText, new InvoluteEditRealKeyListener(this.helixAngleValueText, Parameters.angleHelixReal));
+        this.addInvoluteRealEditTextListener(this.helixAngleValueText, new InvoluteEditRealKeyListener(this.helixAngleValueText, Parameters.angleHelix));
 
         this.leadAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(leadAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.leadAngleValueText, new InvoluteEditRealKeyListener(this.leadAngleValueText, Parameters.angleLeadReal));
+        this.addInvoluteRealEditTextListener(this.leadAngleValueText, new InvoluteEditRealKeyListener(this.leadAngleValueText, Parameters.angleLead));
 
         this.referenceDiameterValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(referenceDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
@@ -161,7 +167,6 @@ public class ValueFixedFragment extends Fragment {
         this.baseDiameterValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(baseDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
         this.addInvoluteRealEditTextListener(this.baseDiameterValueText, new InvoluteEditRealKeyListener(this.baseDiameterValueText, Parameters.diameterBase));
-
         return valueFixedView;
     }
 
@@ -186,6 +191,61 @@ public class ValueFixedFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void showResult() {
+        if (!CalculateResult.isSucceed()) {
+            Log.i(TAG, "showResult: calculate not success");
+            return;
+        }
+        if (!Parameters.teethNumber.isFixed()) {
+            this.teethNumberValueText.setText(CalculateResult.getTeethNumberResultValue());
+        }
+        if (!Parameters.moduleNormal.isFixed()) {
+            this.normalModuleValueText.setText(CalculateResult.getModuleNormalResultValue());
+        }
+        if (!Parameters.moduleTransverse.isFixed()) {
+            this.transverseModuleValueText.setText(CalculateResult.getModuleTransverseResultValue());
+        }
+        if (!Parameters.moduleAxial.isFixed()) {
+            this.axialModuleValueText.setText(CalculateResult.getModuleAxialResultValue());
+        }
+        if (!Parameters.moduleBase.isFixed()) {
+            this.baseModuleValueText.setText(CalculateResult.getModuleBasicResultValue());
+        }
+        if (!Parameters.anglePressureNormal.isFixed()) {
+            this.normalPressureAngleValueText.setText(CalculateResult.getAnglePressureNormalResultValue());
+        }
+        if (!Parameters.anglePressure.isFixed()) {
+            this.PressureAngleValueText.setText(CalculateResult.getAnglePressureResultValue());
+        }
+        if (!Parameters.angleHelix.isFixed()) {
+            this.helixAngleValueText.setText(CalculateResult.getAngleHelixResultValue());
+        }
+        if (!Parameters.angleLead.isFixed()) {
+            this.leadAngleValueText.setText(CalculateResult.getAngleLeadResultValue());
+        }
+        if (!Parameters.diameterBase.isFixed()) {
+            this.baseDiameterValueText.setText(CalculateResult.getDiameterBaseResultValue());
+        }
+        if (!Parameters.diameterReference.isFixed()) {
+            this.referenceDiameterValueText.setText(CalculateResult.getDiameterReferenceResultValue());
+        }
+    }
+
+    public void clear() {
+        for (int i = 0; i < this.valueEditLayout.getChildCount(); i++) {
+            View view = this.valueEditLayout.getChildAt(i);
+            if (view instanceof InvoluteEditText) {
+                ((InvoluteEditText) view).setText("");
+            }
+        }
+        for (int i = 0; i < this.fixedLinerlayout.getChildCount(); i++) {
+            View view = this.fixedLinerlayout.getChildAt(i);
+            if (view instanceof CheckBox) {
+                ((CheckBox) view).setChecked(true);
+            }
+        }
     }
 
     /**

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import com.ptb.length.involutecalculator.calculator.Parameters;
 import com.ptb.length.involutecalculator.util.InvolutePageAdapter;
 import com.ptb.length.involutecalculator.R;
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements ContradictionFrag
     private ContradictionFragment contradictionFragment;
     private Button clearBtn;
     private Button calculateBtn;
-    private Button QuitBtn;
+    private Button quitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,20 @@ public class MainActivity extends AppCompatActivity implements ContradictionFrag
     }
 
     private void initView() {
-        clearBtn = (Button) findViewById(R.id.clearBtn);
-        calculateBtn = (Button) findViewById(R.id.calculateBtn);
-        QuitBtn = (Button) findViewById(R.id.QuitBtn);
+        this.clearBtn = (Button) findViewById(R.id.clearBtn);
+        this.clearBtn.setOnClickListener(v -> {
+            Parameters.clear();
+            valueFixedFragment.clear();
+            contradictionFragment.clear();
+        });
+
+        this.calculateBtn = (Button) findViewById(R.id.calculateBtn);
+        this.calculateBtn.setOnClickListener((v -> {
+            Parameters.calculate();
+            valueFixedFragment.showResult();
+            contradictionFragment.showResult();
+        }));
+        this.quitBtn = (Button) findViewById(R.id.QuitBtn);
+        this.quitBtn.setOnClickListener(v -> this.finishAffinity());
     }
 }

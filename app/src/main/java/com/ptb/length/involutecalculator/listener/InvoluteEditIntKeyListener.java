@@ -2,6 +2,7 @@ package com.ptb.length.involutecalculator.listener;
 
 import android.text.Editable;
 import android.text.method.DigitsKeyListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -33,8 +34,11 @@ public class InvoluteEditIntKeyListener extends DigitsKeyListener {
         if (result.getCode() != 0) {
             Toast.makeText(view.getContext(), result.getMessage(), Toast.LENGTH_LONG).show();
         }
+        this.paraInt.setInputValue(result.getValue());
         InvoluteEditText editText = (InvoluteEditText) view;
         editText.setText(result.getValueString());
+        Log.i(TAG, "onKeyDown: int check result value: " + result.getValueString());
+        Log.i(TAG, "onKeyDown: int result value: " + this.paraInt.getResultValue());
         return true;
 //        return super.onKeyDown(view, content, keyCode, event);
     }
