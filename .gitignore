@@ -9,3 +9,6 @@
 .externalNativeBuild
 /.idea
 /.idea/
+/build/
+/basic/build/
+/app/build/

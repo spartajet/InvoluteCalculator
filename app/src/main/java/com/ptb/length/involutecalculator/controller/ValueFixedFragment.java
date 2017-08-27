@@ -13,8 +13,9 @@ import android.widget.LinearLayout;
 import com.ptb.length.involutecalculator.R;
 import com.ptb.length.involutecalculator.calculator.CalculateResult;
 import com.ptb.length.involutecalculator.calculator.Parameters;
-import com.ptb.length.involutecalculator.listener.InvoluteEditIntKeyListener;
 import com.ptb.length.involutecalculator.listener.InvoluteEditRealKeyListener;
+import com.ptb.length.involutecalculator.listener.InvoluteIntEditTextChange;
+import com.ptb.length.involutecalculator.listener.InvoluteRealEditTextChange;
 import com.ptb.length.involutecalculator.util.InvoluteEditText;
 
 
@@ -126,47 +127,59 @@ public class ValueFixedFragment extends Fragment {
         this.teethNumberFixedBox.setOnCheckedChangeListener(((buttonView, isChecked) -> Parameters.teethNumber.setFixed(isChecked)));
         this.teethNumberValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.INTEGER);
         this.valueEditLayout.addView(teethNumberValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.teethNumberValueText.setKeyListener(new InvoluteEditIntKeyListener(Parameters.teethNumber));
+//        this.teethNumberValueText.setKeyListener(new InvoluteEditIntKeyListener(Parameters.teethNumber));
+        this.teethNumberValueText.addTextChangedListener(new InvoluteIntEditTextChange(this.teethNumberValueText, Parameters.teethNumber, this.getContext()));
 
         this.normalModuleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(normalModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.normalModuleValueText, new InvoluteEditRealKeyListener(this.normalModuleValueText, Parameters.moduleNormal));
+//        this.addInvoluteRealEditTextListener(this.normalModuleValueText, new InvoluteEditRealKeyListener(this.normalModuleValueText, Parameters.moduleNormal));
+        this.normalModuleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.normalModuleValueText, Parameters.moduleNormal, this.getContext()));
 
         this.transverseModuleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(transverseModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.transverseModuleValueText, new InvoluteEditRealKeyListener(this.transverseModuleValueText, Parameters.moduleTransverse));
+//        this.addInvoluteRealEditTextListener(this.transverseModuleValueText, new InvoluteEditRealKeyListener(this.transverseModuleValueText, Parameters.moduleTransverse));
+        this.transverseModuleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.transverseModuleValueText, Parameters.moduleTransverse, this.getContext()));
 
         this.axialModuleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(axialModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.axialModuleValueText, new InvoluteEditRealKeyListener(this.axialModuleValueText, Parameters.moduleAxial));
+//        this.addInvoluteRealEditTextListener(this.axialModuleValueText, new InvoluteEditRealKeyListener(this.axialModuleValueText, Parameters.moduleAxial));
+        this.axialModuleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.axialModuleValueText, Parameters.moduleAxial, this.getContext()));
 
         this.baseModuleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(baseModuleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.baseModuleValueText, new InvoluteEditRealKeyListener(this.baseModuleValueText, Parameters.moduleBase));
+//        this.addInvoluteRealEditTextListener(this.baseModuleValueText, new InvoluteEditRealKeyListener(this.baseModuleValueText, Parameters.moduleBase));
+        this.baseModuleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.baseModuleValueText, Parameters.moduleBase, this.getContext()));
 
         this.normalPressureAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(this.normalPressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.normalPressureAngleValueText, new InvoluteEditRealKeyListener(this.normalPressureAngleValueText, Parameters.anglePressureNormal));
+//        this.addInvoluteRealEditTextListener(this.normalPressureAngleValueText, new InvoluteEditRealKeyListener(this.normalPressureAngleValueText, Parameters.anglePressureNormal));
+        this.normalPressureAngleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.normalPressureAngleValueText, Parameters.anglePressureNormal, this.getContext()));
 
         this.PressureAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(PressureAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.PressureAngleValueText, new InvoluteEditRealKeyListener(this.PressureAngleValueText, Parameters.anglePressure));
+//        this.addInvoluteRealEditTextListener(this.PressureAngleValueText, new InvoluteEditRealKeyListener(this.PressureAngleValueText, Parameters.anglePressure));
+        this.PressureAngleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.PressureAngleValueText, Parameters.anglePressure, this.getContext()));
 
         this.helixAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(helixAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.helixAngleValueText, new InvoluteEditRealKeyListener(this.helixAngleValueText, Parameters.angleHelix));
+//        this.addInvoluteRealEditTextListener(this.helixAngleValueText, new InvoluteEditRealKeyListener(this.helixAngleValueText, Parameters.angleHelix));
+        this.helixAngleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.helixAngleValueText, Parameters.angleHelix, this.getContext()));
 
         this.leadAngleValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(leadAngleValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.leadAngleValueText, new InvoluteEditRealKeyListener(this.leadAngleValueText, Parameters.angleLead));
+//        this.addInvoluteRealEditTextListener(this.leadAngleValueText, new InvoluteEditRealKeyListener(this.leadAngleValueText, Parameters.angleLead));
+        this.leadAngleValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.leadAngleValueText, Parameters.angleLead, this.getContext()));
 
         this.referenceDiameterValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(referenceDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.referenceDiameterValueText, new InvoluteEditRealKeyListener(this.referenceDiameterValueText, Parameters.diameterReference));
+//        this.addInvoluteRealEditTextListener(this.referenceDiameterValueText, new InvoluteEditRealKeyListener(this.referenceDiameterValueText, Parameters.diameterReference));
+        this.referenceDiameterValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.referenceDiameterValueText, Parameters.diameterReference, this.getContext()));
 
         this.baseDiameterValueText = new InvoluteEditText(getContext(), InvoluteEditText.InvoluteParameterType.DECIMAL);
         this.valueEditLayout.addView(baseDiameterValueText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
-        this.addInvoluteRealEditTextListener(this.baseDiameterValueText, new InvoluteEditRealKeyListener(this.baseDiameterValueText, Parameters.diameterBase));
+//        this.addInvoluteRealEditTextListener(this.baseDiameterValueText, new InvoluteEditRealKeyListener(this.baseDiameterValueText, Parameters.diameterBase));
+        this.baseDiameterValueText.addTextChangedListener(new InvoluteRealEditTextChange(this.baseDiameterValueText, Parameters.diameterBase, this.getContext()));
+
         return valueFixedView;
     }
 

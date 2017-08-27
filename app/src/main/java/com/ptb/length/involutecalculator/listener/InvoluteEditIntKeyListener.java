@@ -6,10 +6,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
-import com.ptb.involutecalculator.involute.ParaInt;
-import com.ptb.involutecalculator.io.check.InputCheckResultInt;
 import com.ptb.length.involutecalculator.util.InvoluteEditText;
 import com.ptb.length.involutecalculator.util.KeyCodeUtil;
+import de.ptb.length.involute.ParaInt;
+import de.ptb.length.io.check.InputCheckResultInt;
 
 
 /**

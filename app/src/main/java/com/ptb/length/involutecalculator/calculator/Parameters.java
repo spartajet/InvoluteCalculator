@@ -1,7 +1,7 @@
 package com.ptb.length.involutecalculator.calculator;
 
 import android.util.Log;
-import com.ptb.involutecalculator.involute.*;
+import de.ptb.length.involute.*;
 
 
 /**
@@ -15,49 +15,48 @@ public class Parameters {
     /**
      * The Teeth number.
      */
-    public static TeethNumber teethNumber = new TeethNumber(true, "", 1000, 1, 3);
+    public static TeethNumber teethNumber = new TeethNumber();
     /**
      * The Normal module.
      */
-    public static ModuleNormal moduleNormal = new ModuleNormal(true, 2, 4, 100, 0.001, "");
+    public static ModuleNormal moduleNormal = new ModuleNormal();
     /**
      * The Transverse module.
      */
-    public static ModuleTransverse moduleTransverse = new ModuleTransverse(true, 2, 4, 100, 0.001, "");
+    public static ModuleTransverse moduleTransverse = new ModuleTransverse();
     /**
      * The Axial module.
      */
-    public static ModuleAxial moduleAxial = new ModuleAxial(true, 4, 4, 1000, 0.001, "");
+    public static ModuleAxial moduleAxial = new ModuleAxial();
     /**
      * The Base module.
      */
-    public static ModuleBasic moduleBase = new ModuleBasic(true, 2, 4, 100, 0.001, "");
+    public static ModuleBasic moduleBase = new ModuleBasic();
     /**
      * The Angle pressure normal real.
      */
-    public static AnglePressureNormalReal anglePressureNormal = new AnglePressureNormalReal(true, 2, 4, 45, 0.001, "");
+    public static AnglePressureNormalReal anglePressureNormal = new AnglePressureNormalReal();
     /**
      * The Pressure angle.
      */
-    public static AnglePressureReal anglePressure = new AnglePressureReal(true, 2, 4, 45, 0.001, "");
+    public static AnglePressureTransverseReal anglePressure = new AnglePressureTransverseReal();
     /**
      * The Helix angle.
      */
-    public static AngleHelixReal angleHelix = new AngleHelixReal(true, 2, 4, 90, 0.0, "");
+    public static AngleHelixReal angleHelix = new AngleHelixReal();
     /**
      * The Lead angle.
      */
-    public static AngleLeadReal angleLead = new AngleLeadReal(true, 2, 4, 91, 0.0, "");
+    public static AngleLeadReal angleLead = new AngleLeadReal();
     /**
      * The Reference diameter.
      */
-    public static DiameterReference diameterReference = new DiameterReference(true, 4, 5, 10000, 0.001, "");
+    public static DiameterReference diameterReference = new DiameterReference();
     private static int calculateCount = 0;
-    private static boolean deadLoop = false;
     /**
      * The Base diameter.
      */
-    public static DiameterBase diameterBase = new DiameterBase(true, 5, 4, 10000, 0.001, "");
+    public static DiameterBase diameterBase = new DiameterBase();
 
     public static void calculate() {
         refresh();
@@ -72,15 +71,10 @@ public class Parameters {
         Log.i(TAG, "calculate: start angle lead " + angleLead.getResultValue());
         Log.i(TAG, "calculate: start diameter base " + diameterBase.getResultValue());
         Log.i(TAG, "calculate: start diameter reference " + diameterReference.getResultValue());
-        calculate:
         for (int i = 0; i < 2; i++) {
             Para.setOnceMore(true);
             while (Para.isOnceMore()) {
                 calculateCount++;
-                if (calculateCount > 100) {
-                    deadLoop = true;
-                    break calculate;
-                }
                 Para.setOnceMore(false);
                 moduleNormal.calculateValue(moduleTransverse, angleHelix, diameterReference, teethNumber, angleLead, anglePressure, diameterBase, anglePressureNormal, moduleBase, moduleAxial);
                 moduleTransverse.calculateValue(moduleNormal, angleHelix, diameterReference, teethNumber, angleLead, anglePressure, diameterBase, anglePressureNormal, moduleBase, moduleAxial);
@@ -95,12 +89,7 @@ public class Parameters {
                 diameterBase.calculateValue(diameterReference, anglePressure, teethNumber, moduleTransverse, moduleNormal, angleHelix, moduleBase);
             }
         }
-        if (deadLoop) {
-            operateDeadLoop("no solution");
-            CalculateResult.setIsSucceed(false);
-            Log.i(TAG, "calculate: calculate fail");
-            return;
-        }
+        Log.i(TAG, "calculate times : " + calculateCount);
         CalculateResult.setIsSucceed(true);
 
         //calculate contradiction
@@ -115,6 +104,7 @@ public class Parameters {
         anglePressureNormal.calculateContradiction(angleHelix, anglePressure, teethNumber, moduleNormal, diameterBase, moduleBase, moduleTransverse);
         anglePressure.calculateContradiction(anglePressureNormal, angleHelix, diameterReference, diameterBase, teethNumber, moduleTransverse, moduleNormal, moduleBase);
         diameterBase.calculateContradiction(diameterReference, anglePressure, teethNumber, moduleTransverse, moduleNormal, angleHelix, moduleBase);
+
         if (angleHelix.roundValue()) {
             CalculateResult.setAngleHelixResultValue(String.valueOf(angleHelix.getRoundValueString()));
         } else {
@@ -230,10 +220,6 @@ public class Parameters {
 
     private static void refresh() {
         calculateCount = 0;
-        if (deadLoop) {
-            operateDeadLoop("");
-            deadLoop = false;
-        }
         angleHelix.refresh();
         angleLead.refresh();
         anglePressureNormal.refresh();
@@ -245,10 +231,6 @@ public class Parameters {
         moduleNormal.refresh();
         moduleTransverse.refresh();
         teethNumber.refresh();
-    }
-
-    private static void operateDeadLoop(String s) {
-
     }
 
     public static void clear() {
