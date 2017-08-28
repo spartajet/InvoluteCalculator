@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Toast;
+import com.ptb.length.involutecalculator.controller.MainActivity;
 import com.ptb.length.involutecalculator.util.InvoluteEditText;
 import de.ptb.length.involute.ParaInt;
 import de.ptb.length.io.check.InputCheckResultInt;
@@ -14,7 +15,7 @@ import de.ptb.length.io.check.InputCheckResultInt;
  * @email spartajet.guo@gmail.com
  */
 
-public class InvoluteIntEditTextChange implements TextWatcher{
+public class InvoluteIntEditTextChange implements TextWatcher {
     private InvoluteEditText editText;
     private ParaInt paraInt;
     private Context context;
@@ -24,7 +25,9 @@ public class InvoluteIntEditTextChange implements TextWatcher{
         this.paraInt = paraInt;
         this.context = context;
     }
+
     private String before = "";
+    private boolean hasChanged = false;
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -38,11 +41,13 @@ public class InvoluteIntEditTextChange implements TextWatcher{
 
     @Override
     public void afterTextChanged(Editable s) {
-        if (before.equals(s.toString())) {
+        if (before.equals(s.toString()) || this.hasChanged || MainActivity.isCalculating) {
+            this.hasChanged = false;
+            this.before = String.valueOf(s);
             return;
         }
         char c = 0;
-        if (before.length()>s.length()) {
+        if (before.length() > s.length()) {
             c = 8;
         } else {
             c = s.charAt(s.length() - 1);
@@ -50,11 +55,13 @@ public class InvoluteIntEditTextChange implements TextWatcher{
         InputCheckResultInt result = (InputCheckResultInt) this.paraInt.addChar(c);
         paraInt.setInputValue(result.getValue());
         paraInt.setValueString(result.getValueString());
+        this.hasChanged = true;
         if (result.getCode() != 0) {
             Toast.makeText(this.context, result.getMessage(), Toast.LENGTH_LONG).show();
             this.editText.setText(result.getValueString());
         } else {
             before = String.valueOf(s);
+            this.editText.setText(result.getValueString());
         }
     }
 }

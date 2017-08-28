@@ -261,6 +261,53 @@ public class ValueFixedFragment extends Fragment {
         }
     }
 
+    public void checkFixed() {
+        if (this.teethNumberValueText.getText().toString().equals("")) {
+            this.teethNumberFixedBox.setChecked(false);
+            Parameters.teethNumber.setFixed(false);
+        }
+        if (this.normalModuleValueText.getText().toString().equals("")) {
+            this.normalModuleFixedBox.setChecked(false);
+            Parameters.moduleNormal.setFixed(false);
+        }
+        if (this.transverseModuleValueText.getText().toString().equals("")) {
+            this.transverseModuleFixedBox.setChecked(false);
+            Parameters.moduleTransverse.setFixed(false);
+        }
+        if (this.axialModuleValueText.getText().toString().equals("")) {
+            this.axialModuleFixedBox.setChecked(false);
+            Parameters.moduleAxial.setFixed(false);
+        }
+        if (this.baseModuleValueText.getText().toString().equals("")) {
+            this.baseModuleFixedBox.setChecked(false);
+            Parameters.moduleBase.setFixed(false);
+        }
+        if (this.normalPressureAngleValueText.getText().toString().equals("")) {
+            this.normalPressureAngleFixedBox.setChecked(false);
+            Parameters.anglePressureNormal.setFixed(false);
+        }
+        if (this.PressureAngleValueText.getText().toString().equals("")) {
+            this.pressureAngleFixedBox.setChecked(false);
+            Parameters.anglePressure.setFixed(false);
+        }
+        if (this.helixAngleValueText.getText().toString() .equals("")) {
+            this.helixAngleFixedBox.setChecked(false);
+            Parameters.angleHelix.setFixed(false);
+        }
+        if (this.leadAngleValueText.getText().toString() .equals("")) {
+            this.leadAngleFixedBox.setChecked(false);
+            Parameters.angleLead.setFixed(false);
+        }
+        if (this.baseDiameterValueText.getText().toString() .equals("")) {
+            this.baseDiameterFixedBox.setChecked(false);
+            Parameters.diameterBase.setFixed(false);
+        }
+        if (this.referenceDiameterValueText.getText().toString() .equals("")) {
+            this.referenceDiameterFixedBox.setChecked(false);
+            Parameters.diameterReference.setFixed(false);
+        }
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

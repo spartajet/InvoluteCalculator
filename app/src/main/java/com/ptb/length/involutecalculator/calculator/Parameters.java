@@ -105,116 +105,116 @@ public class Parameters {
         anglePressure.calculateContradiction(anglePressureNormal, angleHelix, diameterReference, diameterBase, teethNumber, moduleTransverse, moduleNormal, moduleBase);
         diameterBase.calculateContradiction(diameterReference, anglePressure, teethNumber, moduleTransverse, moduleNormal, angleHelix, moduleBase);
 
-        if (angleHelix.roundValue()) {
+        if (angleHelix.isCalculationSucceed() && angleHelix.roundValue()) {
             CalculateResult.setAngleHelixResultValue(String.valueOf(angleHelix.getRoundValueString()));
         } else {
-            CalculateResult.setAngleHelixResultValue("");
+            CalculateResult.setAngleHelixResultValue(angleHelix.getInputValueString());
         }
-        if (angleLead.roundValue()) {
+        if (angleLead.isCalculationSucceed() && angleLead.roundValue()) {
             CalculateResult.setAngleLeadResultValue(String.valueOf(angleLead.getRoundValueString()));
         } else {
-            CalculateResult.setAngleLeadResultValue("");
+            CalculateResult.setAngleLeadResultValue(angleLead.getInputValueString());
         }
-        if (anglePressureNormal.roundValue()) {
+        if (anglePressureNormal.isCalculationSucceed() && anglePressureNormal.roundValue()) {
             CalculateResult.setAnglePressureNormalResultValue(String.valueOf(anglePressureNormal.getRoundValueString()));
         } else {
-            CalculateResult.setAnglePressureNormalResultValue("");
+            CalculateResult.setAnglePressureNormalResultValue(anglePressureNormal.getInputValueString());
         }
-        if (anglePressure.roundValue()) {
+        if (anglePressure.isCalculationSucceed() && anglePressure.roundValue()) {
             CalculateResult.setAnglePressureResultValue(String.valueOf(anglePressure.getRoundValueString()));
         } else {
-            CalculateResult.setAnglePressureResultValue("");
+            CalculateResult.setAnglePressureResultValue(anglePressure.getInputValueString());
         }
-        if (diameterBase.roundValue()) {
+        if (diameterBase.isCalculationSucceed() && diameterBase.roundValue()) {
             CalculateResult.setDiameterBaseResultValue(String.valueOf(diameterBase.getRoundValue()));
         } else {
-            CalculateResult.setDiameterBaseResultValue("");
+            CalculateResult.setDiameterBaseResultValue(diameterBase.getInputValueString());
         }
-        if (diameterReference.roundValue()) {
+        if (diameterReference.isCalculationSucceed() && diameterReference.roundValue()) {
             CalculateResult.setDiameterReferenceResultValue(String.valueOf(diameterReference.getRoundValue()));
         } else {
-            CalculateResult.setDiameterReferenceResultValue("");
+            CalculateResult.setDiameterReferenceResultValue(diameterReference.getInputValueString());
         }
-        if (moduleAxial.roundValue()) {
+        if (moduleAxial.isCalculationSucceed() && moduleAxial.roundValue()) {
             CalculateResult.setModuleAxialResultValue(String.valueOf(moduleAxial.getRoundValue()));
         } else {
-            CalculateResult.setModuleAxialResultValue("");
+            CalculateResult.setModuleAxialResultValue(moduleAxial.getInputValueString());
         }
-        if (moduleBase.roundValue()) {
+        if (moduleBase.isCalculationSucceed() && moduleBase.roundValue()) {
             CalculateResult.setModuleBasicResultValue(String.valueOf(moduleBase.getRoundValue()));
         } else {
-            CalculateResult.setModuleBasicResultValue("");
+            CalculateResult.setModuleBasicResultValue(moduleBase.getInputValueString());
         }
-        if (moduleNormal.roundValue()) {
+        if (moduleNormal.isCalculationSucceed() && moduleNormal.roundValue()) {
             CalculateResult.setModuleNormalResultValue(String.valueOf(moduleNormal.getRoundValue()));
         } else {
-            CalculateResult.setModuleNormalResultValue("");
+            CalculateResult.setModuleNormalResultValue(moduleNormal.getInputValueString());
         }
-        if (moduleTransverse.roundValue()) {
+        if (moduleTransverse.isCalculationSucceed() && moduleTransverse.roundValue()) {
             CalculateResult.setModuleTransverseResultValue(String.valueOf(moduleTransverse.getRoundValue()));
         } else {
-            CalculateResult.setModuleTransverseResultValue("");
+            CalculateResult.setModuleTransverseResultValue(moduleTransverse.getInputValueString());
         }
-        if (teethNumber.roundValue()) {
+        if (teethNumber.isCalculationSucceed() && teethNumber.roundValue()) {
             CalculateResult.setTeethNumberResultValue(String.valueOf(teethNumber.getRoundValue()));
         } else {
-            CalculateResult.setTeethNumberResultValue("");
+            CalculateResult.setTeethNumberResultValue(teethNumber.getInputValueString());
         }
 
-        if (angleHelix.roundContradiction()) {
+        if (angleHelix.isCalculationSucceed() && angleHelix.isKnown() && angleHelix.roundContradiction()) {
             CalculateResult.setAngleHelixContradiction(String.valueOf(angleHelix.getRoundContradictionString()));
         } else {
-            CalculateResult.setAngleHelixContradiction("");
+            CalculateResult.setAngleHelixContradiction("no solution");
         }
-        if (angleLead.roundContradiction()) {
+        if (angleLead.isCalculationSucceed() && angleLead.isKnown() && angleLead.roundContradiction()) {
             CalculateResult.setAngleLeadContradiction(String.valueOf(angleLead.getRoundContradictionString()));
         } else {
-            CalculateResult.setAngleLeadContradiction("");
+            CalculateResult.setAngleLeadContradiction("no solution");
         }
-        if (anglePressureNormal.roundContradiction()) {
+        if (anglePressureNormal.isCalculationSucceed() && anglePressureNormal.isKnown() && anglePressureNormal.roundContradiction()) {
             CalculateResult.setAnglePressureNormalContradiction(String.valueOf(anglePressureNormal.getRoundContradictionString()));
         } else {
-            CalculateResult.setAnglePressureNormalContradiction("");
+            CalculateResult.setAnglePressureNormalContradiction("no solution");
         }
-        if (anglePressure.roundContradiction()) {
+        if (anglePressure.isCalculationSucceed() && anglePressure.isKnown() && anglePressure.roundContradiction()) {
             CalculateResult.setAnglePressureContradiction(String.valueOf(anglePressure.getRoundContradictionString()));
         } else {
-            CalculateResult.setAnglePressureContradiction("");
+            CalculateResult.setAnglePressureContradiction("no solution");
         }
-        if (diameterBase.roundContradiction()) {
+        if (diameterBase.isCalculationSucceed() && diameterBase.isKnown() && diameterBase.roundContradiction()) {
             CalculateResult.setDiameterBaseContradiction(String.valueOf(diameterBase.getRoundContradiction()));
         } else {
-            CalculateResult.setDiameterBaseContradiction("");
+            CalculateResult.setDiameterBaseContradiction("no solution");
         }
-        if (diameterReference.roundContradiction()) {
+        if (diameterReference.isCalculationSucceed() && diameterReference.isKnown() && diameterReference.roundContradiction()) {
             CalculateResult.setDiameterReferenceContradiction(String.valueOf(diameterReference.getRoundContradiction()));
         } else {
-            CalculateResult.setDiameterReferenceContradiction("");
+            CalculateResult.setDiameterReferenceContradiction("no solution");
         }
-        if (moduleAxial.roundContradiction()) {
+        if (moduleAxial.isCalculationSucceed() && moduleAxial.isKnown() && moduleAxial.roundContradiction()) {
             CalculateResult.setModuleAxialContradiction(String.valueOf(moduleAxial.getRoundContradiction()));
         } else {
-            CalculateResult.setModuleAxialContradiction("");
+            CalculateResult.setModuleAxialContradiction("no solution");
         }
-        if (moduleBase.roundContradiction()) {
+        if (moduleBase.isCalculationSucceed() && moduleBase.isKnown() && moduleBase.roundContradiction()) {
             CalculateResult.setModuleBasicContradiction(String.valueOf(moduleBase.getRoundContradiction()));
         } else {
-            CalculateResult.setModuleBasicContradiction("");
+            CalculateResult.setModuleBasicContradiction("no solution");
         }
-        if (moduleNormal.roundContradiction()) {
+        if (moduleNormal.isCalculationSucceed() && moduleNormal.isKnown() && moduleNormal.roundContradiction()) {
             CalculateResult.setModuleNormalContradiction(String.valueOf(moduleNormal.getRoundContradiction()));
         } else {
-            CalculateResult.setModuleNormalContradiction("");
+            CalculateResult.setModuleNormalContradiction("no solution");
         }
-        if (moduleTransverse.roundContradiction()) {
+        if (moduleTransverse.isCalculationSucceed() && moduleTransverse.isKnown() && moduleTransverse.roundContradiction()) {
             CalculateResult.setModuleTransverseContradiction(String.valueOf(moduleTransverse.getRoundContradiction()));
         } else {
-            CalculateResult.setModuleTransverseContradiction("");
+            CalculateResult.setModuleTransverseContradiction("no solution");
         }
-        if (teethNumber.roundContradiction()) {
+        if (teethNumber.isCalculationSucceed() && teethNumber.isKnown() && teethNumber.roundContradiction()) {
             CalculateResult.setTeethNumberContradiction(String.valueOf(teethNumber.getRoundContradiction()));
         } else {
-            CalculateResult.setTeethNumberContradiction("");
+            CalculateResult.setTeethNumberContradiction("no solution");
         }
     }
 

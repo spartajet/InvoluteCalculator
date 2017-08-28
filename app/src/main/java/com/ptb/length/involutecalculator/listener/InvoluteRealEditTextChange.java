@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Toast;
+import com.ptb.length.involutecalculator.controller.MainActivity;
 import com.ptb.length.involutecalculator.util.InvoluteEditText;
 import de.ptb.length.involute.ParaReal;
 import de.ptb.length.io.check.InputCheckResultReal;
@@ -25,7 +26,9 @@ public class InvoluteRealEditTextChange implements TextWatcher {
         this.paraReal = paraReal;
         this.context = context;
     }
+
     private String before = "";
+    private boolean hasChanged = false;
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -37,22 +40,28 @@ public class InvoluteRealEditTextChange implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable s) {
-        if (before.equals(s.toString())) {
+        if (before.equals(s.toString()) || hasChanged|| MainActivity.isCalculating) {
+            this.hasChanged = false;
+            this.before = String.valueOf(s);
             return;
         }
         char c = 0;
-        if (before.length()>s.length()) {
+        if (before.length() > s.length()) {
             c = 8;
         } else {
             c = s.charAt(s.length() - 1);
         }
         InputCheckResultReal result = (InputCheckResultReal) this.paraReal.addChar(c);
-        paraReal.setValueString(result.getValueString());
+//        paraReal.setValueString(result.getValueString());
+        this.hasChanged = true;
         if (result.getCode() != 0) {
             Toast.makeText(this.context, result.getMessage(), Toast.LENGTH_LONG).show();
             this.editText.setText(result.getValueString());
         } else {
+            paraReal.setInputValue(result.getValue());
+            paraReal.setValueString(result.getValueString());
             before = String.valueOf(s);
+            this.editText.setText(result.getValueString());
         }
     }
 }

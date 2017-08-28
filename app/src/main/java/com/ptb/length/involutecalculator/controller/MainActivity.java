@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.ptb.length.involutecalculator.calculator.Parameters;
 import com.ptb.length.involutecalculator.util.InvolutePageAdapter;
 import com.ptb.length.involutecalculator.R;
+import de.ptb.length.util.EnhanceLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +25,14 @@ public class MainActivity extends AppCompatActivity implements ContradictionFrag
     private Button clearBtn;
     private Button calculateBtn;
     private Button quitBtn;
+    public static boolean isCalculating = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.initViews();
+        EnhanceLogger.isLog = true;
         initView();
     }
 
@@ -59,9 +62,12 @@ public class MainActivity extends AppCompatActivity implements ContradictionFrag
 
         this.calculateBtn = (Button) findViewById(R.id.calculateBtn);
         this.calculateBtn.setOnClickListener((v -> {
+            isCalculating = true;
+            valueFixedFragment.checkFixed();
             Parameters.calculate();
             valueFixedFragment.showResult();
             contradictionFragment.showResult();
+            isCalculating = false;
         }));
         this.quitBtn = (Button) findViewById(R.id.QuitBtn);
         this.quitBtn.setOnClickListener(v -> this.finishAffinity());

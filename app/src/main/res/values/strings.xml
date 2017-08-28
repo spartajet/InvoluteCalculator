@@ -10,7 +10,7 @@
     <string name="axial_module">Axial Module</string>
     <string name="base_module">Base Module</string>
     <string name="normal_pressure">Normal Pressure</string>
-    <string name="pressure_angle">Pressure Angle</string>
+    <string name="pressure_angle">Transverse Pressure</string>
     <string name="helix_angle">Helix Angle</string>
     <string name="lead_angle">Lead Angle</string>
     <string name="reference_diameter">Reference Diameter</string>
