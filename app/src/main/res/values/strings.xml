@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InvoluteCalculator</string>
+    <string name="app_name">InvoluteCalculator - beta</string>
     <string name="clear">Clear</string>
     <string name="calculate">Calculate</string>
     <string name="quit">Quit</string>
